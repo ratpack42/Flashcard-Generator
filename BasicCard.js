@@ -1,8 +1,13 @@
-// Constructor function for the 'Basic Card'.
-function BasicCard(front, back) {
-    this.front = front;
-    this.back = back;
+// Constructor function for the 'Basic Card'.           
+function BasicCard(front, back){
+	if (this instanceof BasicCard) {
+		this.front = front;
+		this.back = back;
+	}
+	else {
+		return new BasicCard(front,back);
+	}
 
-};
+}
 
 module.exports = BasicCard;

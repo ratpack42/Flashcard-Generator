@@ -15,4 +15,7 @@ function ClozeCardPrototype() {
 
 ClozeCard.prototype = new ClozeCardPrototype();
 
-module.exports = ClozeCard; 
+module.exports = ClozeCard;         
+
+
+
