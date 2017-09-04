@@ -32,16 +32,16 @@ var obtainCards = function(){
 	else {
 		console.log(cards);
 		for (var i = 0; i < cards.length ; i++){
-			fs.appendFile("logFlash.txt",cards[i].front + "+" +cards[i].back + "\n");
+			fs.appendFile("logFlash.txt",cards[i].front + "," +cards[i].back + "\n");
 		}	
 	}
 };
 
-//Asks user for how many cards they want to make 
+//Asks user for how many cards they want to make `
 inquirer.prompt([
 		{
 			name: "amount",
-			message: "How many cards do you want to make?"
+			message: "How many flashcards do you need?"
 		}
 		]).then(function(answers) {
 			numCards = answers.amount;
