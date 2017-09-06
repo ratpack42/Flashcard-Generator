@@ -8,11 +8,11 @@ var cards = [];
 
 var total = 0;
 
-var numCards;
+var numberCards;
 
 var obtainCards = function(){
 	console.log("Please enter your flashcard text.");
-	if (total  < numCards){
+	if (total  < numberCards){
 		inquirer.prompt([
 		{
 			name: "flashcard",
@@ -32,7 +32,9 @@ var obtainCards = function(){
 	else {
 		console.log(cards);
 		for (var i = 0; i < cards.length ; i++){
-			fs.appendFile("logFlash.txt",cards[i].front + "," +cards[i].back + "\n");
+			fs.appendFile("logFlash.txt",cards[i].front + "," +cards[i].back + "\n", function(err) {
+				if (err) throw err;
+			});
 		}	
 	}
 };
@@ -44,6 +46,6 @@ inquirer.prompt([
 			message: "How many flashcards do you need?"
 		}
 		]).then(function(answers) {
-			numCards = answers.amount;
+			numberCards = answers.amount;
 			obtainCards();
 		});
